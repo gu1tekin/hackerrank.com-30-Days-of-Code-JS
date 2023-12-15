@@ -23,7 +23,7 @@ function Person(initialAge){
     if(initialAge > 0){
         this.age = initialAge;
     } else {
-        this.age=0;
+        this.age=0; 
         console.log("Age is not valid, setting age to 0.")
     }
   
