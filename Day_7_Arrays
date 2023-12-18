@@ -20,13 +20,22 @@ function readLine() {
     return inputString[currentLine++];
 }
 
+
 function main() {
     const n = parseInt(readLine().trim(), 10);
     const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    
+    // Initialize an empty string to store reversed array elements 
     let newArry = '';
+    
+    // Iterate over the array in reverse order
     for(let i = arr.length -1; i >= 0; i--){
+        // Append each element to the new string with a space
         newArry = newArry + String(arr[i]) + ' ';
     }
+    
+    // Remove the trailing space and print the reversed array as a string
     newArry = newArry.slice(0, newArry.length -1);
+
     console.log(newArry);
 }
