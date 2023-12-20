@@ -1,5 +1,37 @@
 function processData(input) {
-    //Enter your code here
+
+    // Split the input by newline characters
+    const splitInput = input.split("\n");
+
+    // Extract the phone book size and convert it to a number
+    const phoneBookSize = + splitInput[0];
+
+    // Extract the input values (names to search)
+    const inputValue = splitInput.slice(phoneBookSize + 1);
+
+    // Create an array of objects representing the phone book
+    const temp = splitInput.slice(1, phoneBookSize + 1).map(list => {
+        let result = {
+            name: list.split(" ")[0],
+            phoneNumber: list.split(" ")[1]
+        }
+        return result;
+    });
+
+    // Convert the array of phone book entries into an associative array
+    let phoneBook = [];
+    for (let list of temp) {
+        phoneBook[list.name] = list.phoneNumber;
+    }
+
+    // Search for names in the phone book and print the results
+    for (let name of inputValue) {
+        if (phoneBook[name]) {
+            console.log(`${name}=${phoneBook[name]}`);
+        } else {
+            console.log('Not found')
+        }
+    }
 } 
 
 process.stdin.resume();
