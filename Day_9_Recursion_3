@@ -30,8 +30,15 @@ function readLine() {
  */
 
 function factorial(n) {
-    // Write your code here
+     //if n is 0, return 1
+     if (n === 0){
+        return 1;
+    } 
 
+    //calculate n * factorial(n - 1)
+    else{
+        return (n * (factorial(n - 1)));
+    }
 }
 
 function main() {
