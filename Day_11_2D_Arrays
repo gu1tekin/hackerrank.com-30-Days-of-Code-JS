@@ -29,4 +29,19 @@ function main() {
     for (let i = 0; i < 6; i++) {
         arr[i] = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
     }
+
+let result = arr.reduce((target, rows, index) => {
+        rows.reduce((subTarget, item, subIndex) => {
+            (
+                index < arr.length - 2 && subIndex < arr.length - 2
+            ) &&
+                target.push(
+                    arr[index][subIndex] + arr[index][subIndex + 1] + arr[index][subIndex + 2] + arr[index + 1][subIndex + 1] + arr[index + 2][subIndex] + arr[index + 2][subIndex + 1] + arr[index + 2][subIndex + 2]
+                );
+        }, []);
+
+        return target;
+    }, []);
+
+    console.log(Math.max.apply(null, result));
 }
