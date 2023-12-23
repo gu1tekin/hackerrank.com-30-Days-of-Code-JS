@@ -30,12 +30,16 @@ function readLine() {
  */
 
 function factorial(n) {
-     if (n == 0){
-        return 1;
-    } 
-    else{
-        return (n * (factorial(n - 1)));
-    }
+    // Convert the decimal number to binary
+    const binaryRepresentation = n.toString(2);
+
+    // Split the binary representation by '0' to get an array of consecutive 1's
+    const consecutiveOnesArray = binaryRepresentation.split('0');
+
+    // Find the length of the maximum consecutive 1's sequence
+    const maxLength = Math.max(...consecutiveOnesArray.map(sequence => sequence.length));|
+
+    return maxLength;
 }
 
 function main() {
